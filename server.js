@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const app = express()
 
 
+
+require('./user.model');
 const port = process.env.PORT || 3000;
 const dbUrl = 'mongodb+srv://admin:zsolt123123@prfcluster.ariec.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(dbUrl)

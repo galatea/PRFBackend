@@ -2,6 +2,32 @@ const router = require('express').Router()
 
 const mongoose = require('mongoose')
 const aruModel = mongoose.model('aru')
+const userModel = mongoose.model('user')
+
+router.route('/user').get((req, res, next) =>{
+    userModel.find({}, (err, users) =>{
+        if(err) return res.status(500).send('DB hiba');
+        res.status(200).send(users);
+    })
+}).post((req, res, next) => {
+    if(req.body.username && req.body.password && req.body.email){
+        userModel.findOne({username: req.body.username}, (err, user) => {
+            if(err) return res.status(500).send('Db hiba');
+            if(user){
+                return res.status(400).send('Hibas kmar van ilyen felhnev');
+        }
+            const usr = new userModel({username: req.body.username, password: req.body.password, email: req.body.email});
+            usr.save((error) => {
+                if(error) return res.status(500).send('A mentes soran hiba tortent');
+                return res.status(200).send('Sikeres mentes torent');
+            });
+        })
+    } else {
+        return res.status(400).send('Hibas keres, username email es pass kell');
+    }
+})
+///////////////////
+
 
 router.route('/arukereso/:id?').get((req, res) => {
     if(req.params.id) {
