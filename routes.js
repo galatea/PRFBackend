@@ -3,6 +3,7 @@ const router = require('express').Router()
 const mongoose = require('mongoose')
 const aruModel = mongoose.model('aru')
 const userModel = mongoose.model('user')
+const passport = require('passport');
 
 router.route('/user').get((req, res, next) =>{
     userModel.find({}, (err, users) =>{
@@ -24,6 +25,38 @@ router.route('/user').get((req, res, next) =>{
         })
     } else {
         return res.status(400).send('Hibas keres, username email es pass kell');
+    }
+})
+
+router.route('/login').post((req,res,next)=>{
+    if(req.body.username, req.body.password) {
+        passport.authenticate('local', function(error, user){
+            if(error) return res.status(500).send( error);
+            req.logIn(user, function (error) {
+                if(error) return res.status(500).send( error);
+                return res.status(200).send('Bejelentkezes sikeres');
+            })
+        })(req, res);
+    }
+})
+
+
+
+router.route('/logout').post((req, res, next) => {
+    if(req.isAuthenticated()){
+        req.logout();
+        return res.status(200).send('Kijelentkezes megtortent');
+    } else {
+        return res.status(403).send('A user nem volt bejelentkezve');
+    }
+    }
+)
+
+router.route('/status').get((req,res,next) => {
+    if(req.isAuthenticated()){
+        return res.status(200).send(req.session.passport);
+    } else {
+        return res.status(403).send('A user nem volt bejelentkezve');
     }
 })
 ///////////////////

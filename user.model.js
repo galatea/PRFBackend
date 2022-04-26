@@ -31,4 +31,11 @@ userSchema.pre('save', function(next){
     }
 })
 
+
+//osszehasonlíto funkcio, salt ellenorzessel
+userSchema.methods.comparePassword = function(password, nx){
+    bcrypt.compare(password, this.password, function (err, isMatch){
+        nx(err, isMatch);
+    })
+}
 mongoose.model('user',userSchema);;
