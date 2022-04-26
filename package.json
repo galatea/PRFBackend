@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.3.1",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
+  },
+  "name": "prfbackend",
+  "description": "Kotelezo beadando feladatra elkeszitett projektmunka backend resze.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galatea/PRFBackend.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "PassportJS",
+    "MongoDB"
+  ],
+  "author": "Zsolt M.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galatea/PRFBackend/issues"
+  },
+  "homepage": "https://github.com/galatea/PRFBackend#readme"
+}
