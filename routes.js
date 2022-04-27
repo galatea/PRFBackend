@@ -3,6 +3,7 @@ const router = require('express').Router()
 const mongoose = require('mongoose')
 const userModel = mongoose.model('user')
 const itemModel = mongoose.model('item')
+const oderModel = mongoose.model('order')
 
 const passport = require('passport');
 
@@ -62,6 +63,14 @@ router.route('/status').get((req,res,next) => {
     }
 })
 //////////////// products
+// Json form
+// {
+//     "name": "TESZT",
+//     "price": "1200",
+//     "piece": "2",
+//     "description": "asd",
+//     "picture":"https://via.placeholder.com/150/92c952"
+// }
 router.route('/item').get((req, res, next) =>{
     itemModel.find({}, (err, items) =>{
         if(err) return res.status(500).send('DB hiba');
@@ -81,11 +90,42 @@ router.route('/item').get((req, res, next) =>{
             });
         })
     } else {
-        return res.status(400).send('Hibas keres, username email es pass kell');
+        return res.status(400).send('Hibas keres, minden adat megadasa szukseges');
     }
 })
 
-
+//////////////// orders
+// {
+//     "contactname": "TESZT",
+//     "adress": "ADRESS",
+//     "phoneNumber": "0630123455",
+//     "itemId": "12",
+//     "itemName":"KAKUKK",
+//     "price": "1200",
+//     "orderDesc": "Nem kotelezo leíras"
+// }
+router.route('/order').get((req, res, next) =>{
+    oderModel.find({}, (err, orders) =>{
+        if(err) return res.status(500).send('DB hiba');
+        res.status(200).send(orders);
+    })
+}).post((req, res, next) => {
+    if(req.body.contactname && req.body.adress && req.body.phoneNumber && req.body.itemId && req.body.itemName && req.body.price && req.body.orderDesc){
+        oderModel.findOne({name: req.body.contactname}, (err, items) => {
+            // if(err) return res.status(500).send('Db hiba');
+            // if(items){
+            //     return res.status(400).send('Hiba! Mar van ilyen termek');
+            // }
+            const ordr = new oderModel({contactname: req.body.contactname, adress: req.body.adress, phoneNumber: req.body.phoneNumber, itemId:req.body.itemId, itemName: req.body.itemName, price : req.body.price, orderDesc: req.body.orderDesc });
+            ordr.save((error) => {
+                if(error) return res.status(500).send('A mentes soran hiba tortent');
+                return res.status(200).send('Sikeres mentes torent');
+            });
+        })
+    } else {
+        return res.status(400).send('Hibas keres, legtobb adat megadasa szukseges');
+    }
+})
 
 
 ///////////////////

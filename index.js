@@ -21,6 +21,7 @@ const whiteList = ['http://localhost:4200']
 app.use(cors({oriring: 'http://localhost:4200'}))
 require('./user.model');
 require('./item.model');
+require('./order.model');
 
 
 const userModel = mongoose.model('user');
