@@ -1,8 +1,9 @@
 const router = require('express').Router()
 
 const mongoose = require('mongoose')
-const aruModel = mongoose.model('aru')
 const userModel = mongoose.model('user')
+const itemModel = mongoose.model('item')
+
 const passport = require('passport');
 
 router.route('/user').get((req, res, next) =>{
@@ -16,7 +17,7 @@ router.route('/user').get((req, res, next) =>{
             if(err) return res.status(500).send('Db hiba');
             if(user){
                 return res.status(400).send('Hibas kmar van ilyen felhnev');
-        }
+            }
             const usr = new userModel({username: req.body.username, password: req.body.password, email: req.body.email});
             usr.save((error) => {
                 if(error) return res.status(500).send('A mentes soran hiba tortent');
@@ -27,6 +28,7 @@ router.route('/user').get((req, res, next) =>{
         return res.status(400).send('Hibas keres, username email es pass kell');
     }
 })
+
 
 router.route('/login').post((req,res,next)=>{
     if(req.body.username, req.body.password) {
@@ -43,12 +45,12 @@ router.route('/login').post((req,res,next)=>{
 
 
 router.route('/logout').post((req, res, next) => {
-    if(req.isAuthenticated()){
-        req.logout();
-        return res.status(200).send('Kijelentkezes megtortent');
-    } else {
-        return res.status(403).send('A user nem volt bejelentkezve');
-    }
+        if(req.isAuthenticated()){
+            req.logout();
+            return res.status(200).send('Kijelentkezes megtortent');
+        } else {
+            return res.status(403).send('A user nem volt bejelentkezve');
+        }
     }
 )
 
@@ -59,6 +61,33 @@ router.route('/status').get((req,res,next) => {
         return res.status(403).send('A user nem volt bejelentkezve');
     }
 })
+//////////////// products
+router.route('/item').get((req, res, next) =>{
+    itemModel.find({}, (err, items) =>{
+        if(err) return res.status(500).send('DB hiba');
+        res.status(200).send(items);
+    })
+}).post((req, res, next) => {
+    if(req.body.name && req.body.piece && req.body.price && req.body.description && req.body.picture){
+        itemModel.findOne({name: req.body.name}, (err, items) => {
+            if(err) return res.status(500).send('Db hiba');
+            if(items){
+                return res.status(400).send('Hiba! Mar van ilyen termek');
+            }
+            const itm = new itemModel({name: req.body.name, piece: req.body.piece, price: req.body.price, description:req.body.description, picture: req.body.picture});
+            itm.save((error) => {
+                if(error) return res.status(500).send('A mentes soran hiba tortent');
+                return res.status(200).send('Sikeres mentes torent');
+            });
+        })
+    } else {
+        return res.status(400).send('Hibas keres, username email es pass kell');
+    }
+})
+
+
+
+
 ///////////////////
 
 
@@ -82,7 +111,7 @@ router.route('/arukereso/:id?').get((req, res) => {
         return res.status(400).send('Add meg milyen árut kell felvenni!')
     }
     if(req.body.ar && req.body.darab) {
-        let aru = new aruModel({nev: req.params.id, ar: req.body.ar, 
+        let aru = new aruModel({nev: req.params.id, ar: req.body.ar,
             darab: req.body.darab})
         aru.save((err) => {
             if(err) {
@@ -135,7 +164,7 @@ router.route('/hellow').get((req, res) => {
 }).post((req, res) => {
     if(req.body.name) {
         return res.status(200).send('Hello ' + req.body.name +
-        ', it is nice to meet you')
+            ', it is nice to meet you')
     }
     return res.status(400).send('You are rude!')
 })
