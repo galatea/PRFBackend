@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3036c88-2842-4a97-a55e-4e36540fad39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/items.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/servers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +50,18 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager" selected="Node.js.n">
+    <configuration name="Unnamed" type="NodeJSConfigurationType" nameIsGenerated="true" node-parameters="npm start" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="n" type="NodeJSConfigurationType" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.Unnamed" />
+      <item itemvalue="Node.js.n" />
+    </list>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,7 +70,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1650997087025</updated>
-      <workItem from="1650997088841" duration="20339000" />
+      <workItem from="1650997088841" duration="24441000" />
+      <workItem from="1651134041105" duration="12771000" />
     </task>
     <servers />
   </component>
@@ -82,21 +88,52 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1500" y="288" key="FileChooserDialogImpl" timestamp="1651062404392">
-      <screen x="-2560" y="-167" width="2560" height="1400" />
+    <state x="734" y="355" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651143892005">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="734" y="355" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1651143892005" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1651134312636">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="-1500" y="288" key="FileChooserDialogImpl/0.0.1536.824/-2560.-167.2560.1400@-2560.-167.2560.1400" timestamp="1651062404392" />
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1651134312636" />
+    <state width="1269" height="401" key="GridCell.Tab.0.bottom" timestamp="1651143905455">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1269" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1651143905455" />
+    <state width="1269" height="401" key="GridCell.Tab.0.center" timestamp="1651143905455">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1269" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1651143905455" />
+    <state width="1269" height="401" key="GridCell.Tab.0.left" timestamp="1651143905455">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1269" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1651143905455" />
+    <state width="1269" height="401" key="GridCell.Tab.0.right" timestamp="1651143905455">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1269" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1651143905455" />
+    <state x="1097" y="357" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1651136193005">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1097" y="357" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1651136193005" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes.js</url>
-          <line>65</line>
-          <properties lambdaOrdinal="-1" />
+          <line>16</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/routes.js</url>
+          <line>136</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
