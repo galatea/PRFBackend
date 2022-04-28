@@ -18,7 +18,7 @@ const whiteList = ['http://localhost:4200']
 //     }
 // }));
 
-app.use(cors({oriring: 'http://localhost:4200'}))
+app.use(cors({origin: 'http://localhost:4200', credentials: true}))
 require('./user.model');
 require('./item.model');
 require('./order.model');

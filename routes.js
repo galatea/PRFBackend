@@ -93,7 +93,19 @@ router.route('/item').get((req, res, next) =>{
         return res.status(400).send('Hibas keres, minden adat megadasa szukseges');
     }
 })
-
+//item lekeres
+router.route('/getitem').get((req, res, next) => {
+    if(req.body._id){
+        itemModel.findOne({_id: req.body._id}, (err, items) => {
+            if(err) return res.status(500).send('Db hiba');
+            if(items){
+                return res.status(200).send(items);
+            }
+        })
+    } else {
+        return res.status(400).send('Hibas keres, minden adat megadasa szukseges');
+    }
+})
 //////////////// orders
 // {
 //     "contactname": "TESZT",
