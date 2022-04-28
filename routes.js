@@ -93,10 +93,18 @@ router.route('/item').get((req, res, next) =>{
         return res.status(400).send('Hibas keres, minden adat megadasa szukseges');
     }
 }).put((req, res, next) => {
-   if(){
+    if(req.body._id && req.body.name && req.body.piece && req.body.price && req.body.description && req.body.picture){
+        itemModel.findByIdAndUpdate(req.body._id,{name: req.body.name, piece: req.body.piece, price: req.body.price, description:req.body.description, picture: req.body.picture}, function(err, result){
 
-   }
-})
+            if(err){
+                res.send(err)
+            }
+            else{
+                res.send(result)
+            }
+
+        })
+    }})
 //item lekeres
 router.route('/getitem').get((req, res, next) => {
     if(req.body._id){
