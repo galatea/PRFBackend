@@ -1,0 +1,43 @@
+<h1 align="center">Nagykeren lévő termékek listázása</h1>
+
+<!--<button (click)="getProducts()">Fetch Data</button>-->
+
+<!--&lt;!&ndash;The code to display images &ndash;&gt;-->
+<!--<div *ngFor="let item of datas" style="text-align:center">-->
+<!--  <h3>-->
+<!--    {{ item.name }}-->
+<!--  </h3>-->
+<!--  <img width="200" [src]="item.picture">-->
+<!--</div>-->
+
+<section class="table" >
+  <div class="rnd-corner">
+    <div class="container">
+      <table class="custab text-center table-responsive">
+        <thead>
+        <tr>
+          <th>Megnevezés</th>
+          <th>Ár</th>
+          <th>Raktáron</th>
+          <th>Rövid leírás</th>
+          <th>Kép</th>
+          <th>További infok</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of datas">
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.piece}}</td>
+          <td>{{item.description}}</td>
+          <td><img width="50" [src]="item.picture"></td>
+          <td><a [routerLink]="['/product', item._id]">Tovább</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

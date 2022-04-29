@@ -1,0 +1,55 @@
+
+<section class="section-content padding-y bg">
+  <div class="container">
+    <ng-container *ngFor="let item of datas">
+      <ng-container *ngIf="item._id == productId">
+
+        <article class="card" >
+          <div class="card-body" >
+            <div class="row" >
+              <aside class="col-md-6">
+                <article class="gallery-wrap">
+                  <div class="card img-big-wrap">
+                     <img width="400" [src]="item.picture">
+                  </div> <!-- card img-big-wrap.// -->
+
+                </article> <!-- gallery-wrap .end// -->
+              </aside>
+              <main class="col-md-6">
+                <article>
+                  <h3 class="title"> {{item.name}}</h3>
+
+                  <hr>
+
+                  <div class="mb-3">
+                    <h6>Néhány információ</h6>
+                    <ul class="list-dots mb-0">
+                      <li>Raktáron: {{item.piece}}</li>
+                      <li>{{item.description}}</li>
+
+                    </ul>
+                  </div>
+
+
+
+                  <div class="mb-3">
+                    <var class="price h4">{{item.price}} Ft </var> <br>
+                  </div> <!-- price-detail-wrap .// -->
+
+                  <div class="mb-4">
+                    <a [routerLink]="['/shop', item._id, item.name, item.price] " class="btn btn-primary mr-1">Megveszem</a>
+
+                  </div>
+
+                </article> <!-- product-info-aside .// -->
+              </main> <!-- col.// -->
+            </div> <!-- row.// -->
+          </div> <!-- card-body.// -->
+        </article>
+      </ng-container>
+    </ng-container>
+
+  </div>
+
+
+</section>

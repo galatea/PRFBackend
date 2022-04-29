@@ -1,0 +1,14 @@
+<div class="content" role="main" align="center">
+  <h2>Regisztrálás</h2>
+  <div>
+    <label>Felh. nev</label>
+    <input type="text" id="username" [(ngModel)]="username">
+  </div>
+  <div>
+    <label>Jelszo</label>
+    <input type="password" id="password" [(ngModel)]="password">
+  </div>
+  <label>Email</label>
+  <input type="email" id="email" [(ngModel)]="email">
+</div>
+  <button (click)="register()">Regisztrálás</button>

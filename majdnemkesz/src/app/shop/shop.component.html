@@ -1,0 +1,31 @@
+<div class="content" role="main" align="center">
+  <h2>Termék megrendelés</h2>
+  <div>
+    <label>Termék neve:</label>
+    {{productName}}
+  </div>
+  <div>
+    <label>Teljes név:</label>
+    <input type="text" id="fullname" [(ngModel)]="fullname">
+  </div>
+  <div>
+    <label>Telefonszám:</label>
+    <input type="text" id="phonenumber" [(ngModel)]="phonenumber">
+  </div>
+  <div>
+    <label>Számlázási cím:</label>
+    <input type="text" id="address" [(ngModel)]="address">
+  </div>
+  <label>Megjegyzés:</label>
+  <input type="text" id="description" [(ngModel)]="description">
+  <div>
+    <label>Fizetendő összeg:</label>
+    {{productPrice}} Ft
+  </div>
+  <div>
+    <button (click)="send()">Megrendelés</button>
+
+  </div>
+
+</div>
+
