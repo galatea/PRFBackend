@@ -10,9 +10,10 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 //const PORT = 3000
 var app_path = '../dist/prfdeploy';
-app.use('/', express.static(path.join(__dirname, app_path)))
-.get('*', (req,res) => res.sendFile(path.join(__dirname,app_path +'/index.html')))
-.listen(PORT,()=>console.log(`LISTENING ON ${PORT}`));
+
+
+
+
 
 const whiteList = ['http://localhost:4200']
 // app.use(cors({
@@ -88,3 +89,7 @@ app.use('/proba', (req, res) => {
 app.use('/', require('./routes'))
 app.use('/ezegymasikroute', require('./routes'))
 
+
+app.use('/', express.static(path.join(__dirname, app_path)))
+.get('*', (req,res) => res.sendFile(path.join(__dirname,app_path +'/index.html')))
+.listen(PORT,()=>console.log(`LISTENING ON ${PORT}`));

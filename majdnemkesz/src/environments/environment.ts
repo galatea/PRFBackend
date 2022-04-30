@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost:3000/'
+  //serverUrl: 'https://prfdeploy3.herokuapp.com/'
+  serverUrl:'http://localhost:4200/api'
 };
 
 /*

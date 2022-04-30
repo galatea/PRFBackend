@@ -1,3 +1,4 @@
+/*
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
@@ -44,9 +45,9 @@ export class ProductsComponent implements OnInit {
 
 
 }
+*/
 
 
-/*
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
@@ -59,10 +60,10 @@ import {Router} from "@angular/router";
 })
 export class ProductsComponent implements OnInit {
 
-  datas : any[] = [];
+  datas : any = [];
 
   constructor(private http: HttpClient) {
-    this.datas = [{}];
+    this.datas = {};
   }
 
   productAdd(name: string, piece: number, price: number, description: string, picture: string) {
@@ -78,7 +79,8 @@ export class ProductsComponent implements OnInit {
   getProducts() {
 
     this.http.get( '/api/item').subscribe((res)=>{
-      this.datas.push(res)
+      console.log(this.datas)
+      this.datas =res
       console.log(this.datas)
     })
 
@@ -94,4 +96,3 @@ export class ProductsComponent implements OnInit {
 
 }
 
-*/
